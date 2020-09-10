@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>写文章</title>
+    <%- include head %>
+  </head>
+  <body>
+    <h3>写文章</h3>
+	<%- include('bar', {username: username}) %>
+	
+	<div>
+		<form action="/article/add" method="post">
+			<input type="hidden" name="id" value="<%- item.id %>">
+			<input type="hidden" name="page" value="<%- item.page %>">
+			
+			<input type="text" name="title" placeholder="请输入文章标题" value="<%=item.title%>">
+			<textarea rows="10" cols="30" name="content" class='xheditor'><%- item.content %></textarea>
+			<% if (item.id) { %>
+				<input type="submit" value="修改">
+			<%} else {%>
+				<input type="submit" value="发布">
+			<%}%>
+		</form>
+	</div>
+	
+	<script type="text/javascript" src="/xheditor-1.1.14/jquery/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="/xheditor-1.1.14/xheditor-1.1.14-en.min.js"></script>
+	<script type="text/javascript" src="/xheditor-1.1.14/xheditor-1.1.14-zh-cn.min.js"></script>
+	
+	<script>
+		$('.xheditor').xheditor({
+			 tools:'full',
+			 skin:'default',
+			 upImgUrl: '/article/upload', // 图片上传
+			 html5Upload: false,
+			 upMultiple: 1 // 一次只能上传一张图片
+		})
+	</script>
+	
+  </body>
+</html>

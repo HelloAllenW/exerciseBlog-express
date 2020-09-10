@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>首页</title>
+    <%- include head %>
+  </head>
+  <body>
+	  <%- include('bar', {username: username}) %>
+	<div>
+		<div><%= item.title %></div>
+		<div>
+			<span>作者:<%= username %></span>
+			<span>发布时间：<%= item.time %></span>
+		</div>
+		<div>内容：<%- item.content %></div>
+	</div>
+  </body>
+</html>
