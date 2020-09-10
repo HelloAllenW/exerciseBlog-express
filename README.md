@@ -124,3 +124,6 @@ module.exports = {
 ```var multiparty = require('multiparty')```
 3. 实例化：
 ```var form = new multiparty.Form()```
+
+## EJS模板引擎
+```npm install ejs --save```
